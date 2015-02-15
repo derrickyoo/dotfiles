@@ -1,21 +1,24 @@
-# Fun Output Text
+# The Matrix Has You
 echo ""
-echo "Follow the white rabbit."
+echo "Follow the white rabbit.🐇 "
 echo ""
 
-export PATH=/usr/local/bin:$PATH
+# PATH
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# export PATH=/usr/local/git/bit/:$PATH
 
-# Terminal Settings
-export PROMPT_COMMAND='echo -ne "\033]0;$PWD\007"'
-export PS1="\u:\w $ "
-
-# Virtualenvwrapper
-export WORKON_HOME="$HOME/.virtualenvs"
+# Virtualenv and Virtualenvwrapper
+export WORKON_HOME=~/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 
-# Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-export PATH="/Library/Frameworks/Python.framework/Versions/3.3/bit:$PATH"
+# Git
+source ~/.bash_completion.d/.git-completion.sh
+source ~/.bash_completion.d/.git-flow-completion.sh
+source ~/.bash_completion.d/.git-prompt.sh
+
+# Prompt
+# export PS1="\u:\w $ "
+export PS1="\u:\W\$(__git_ps1 ' (%s)')🐇  "
 
 # PostgreSQL
 PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
