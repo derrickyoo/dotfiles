@@ -1,9 +1,13 @@
 #!/bin/sh
 apt update  # To get the latest package lists
 
-apt install unbuntu-restricted-extras -y
-apt install vim -y
-apt install git -y
+apt install -y python3-pip
+apt install -y python3-venv
+apt install build-essential libssl-dev libffi-dev python-dev
+
+apt install -y unbuntu-restricted-extras
+apt install -y vim
+apt install -y git
 git config -g user.name "your name"
 git config -g user.email "your_email@example.com"
 
@@ -15,8 +19,8 @@ git config -g user.email "your_email@example.com"
 
 ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 
-apt install nodejs -y
-apt install npm -y
+apt install -y nodejs
+apt install -y npm
 
 npm install -g heroku
 
@@ -27,4 +31,4 @@ npm install -g heroku
 # git push heroku
 # heroku open
 
-apt upgrade
+apt -y upgrade
