@@ -14,4 +14,3 @@ set expandtab
 set shiftwidth=4 ts=8 softtabstop=4
 set shiftround
 set number
-

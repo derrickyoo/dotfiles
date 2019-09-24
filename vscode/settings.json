@@ -1,19 +1,31 @@
 {
-  // https://code.visualstudio.com/docs/getstarted/settings
-  
-  // Render vertical rulers after a certain number of monospace characters. Use multiple values for multiple rulers. No rulers are drawn if array is empty.
+  "workbench.colorTheme": "Dainty – Ayu Mirage",
+  "workbench.iconTheme": "material-icon-theme",
+  "vetur.validation.template": false,
+  "eslint.validate": [
+    {
+      "language": "vue",
+      "autoFix": true
+    },
+    {
+      "language": "html",
+      "autoFix": true
+    },
+    {
+      "language": "javascript",
+      "autoFix": true
+    }
+  ],
+  "eslint.autoFixOnSave": true,
+  "editor.formatOnSave": true,
+  "editor.insertSpaces": true,
   "editor.rulers": [79, 120],
-
-  // The number of spaces a tab is equal to. This setting is overridden based on the file contents when `editor.detectIndentation` is on.
-  "editor.tabSize" : 2,
-
-  // Controls whether `editor.tabSize#` and `#editor.insertSpaces` will be automatically detected when a file is opened based on the file contents.
-  "editor.detectIndentation": false,
-  
-  // Remove trailing auto inserted whitespace.
-  "editor.trimAutoWhitespace": true,
-
-  "[python]" : {
-    "editor.tabSize" : 4,
-  }
+  "editor.tabSize": 2,
+  "[html]": {
+    "editor.tabSize": 2
+  },
+  "[python]": {
+    "editor.tabSize": 4
+  },
+  "editor.trimAutoWhitespace": true
 }
