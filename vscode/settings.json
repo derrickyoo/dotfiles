@@ -21,9 +21,6 @@
   "editor.insertSpaces": true,
   "editor.rulers": [79, 120],
   "editor.tabSize": 2,
-  "[html]": {
-    "editor.tabSize": 2
-  },
   "[python]": {
     "editor.tabSize": 4
   },
