@@ -1,28 +1,133 @@
 {
-  "workbench.colorTheme": "Dainty – Ayu Mirage",
-  "workbench.iconTheme": "material-icon-theme",
-  "vetur.validation.template": false,
-  "eslint.validate": [
-    {
-      "language": "vue",
-      "autoFix": true
-    },
-    {
-      "language": "html",
-      "autoFix": true
-    },
-    {
-      "language": "javascript",
-      "autoFix": true
-    }
-  ],
-  "eslint.autoFixOnSave": true,
-  "editor.formatOnSave": true,
-  "editor.insertSpaces": true,
-  "editor.rulers": [79, 120],
-  "editor.tabSize": 2,
-  "[python]": {
-    "editor.tabSize": 4
+  // Editor
+  "terminal.integrated.scrollback": 1000,
+  "files.associations": {
+    "*.md": "mdx"
   },
-  "editor.trimAutoWhitespace": true
+  "css.lint.unknownAtRules": "ignore",
+  "css.validate": false,
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "vue-html": "html"
+  },
+
+  "[python]": {
+    "editor.tabSize": 4,
+    "editor.rulers": [79, 120]
+  },
+  "[html][javascript][javascriptreact][jsonc][typescript][typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma",
+    "editor.formatOnSave": true
+  },
+  "emmet.triggerExpansionOnTab": true,
+  "eslint.alwaysShowStatus": true,
+  "editor.autoIndent": "full",
+  "editor.codeLens": false,
+  "editor.cursorBlinking": "solid",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.cursorStyle": "line",
+  "editor.fontFamily": "Fira Code, Hack, Menlo",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 14,
+  "editor.formatOnPaste": false,
+  "editor.formatOnType": false,
+  "editor.formatOnSave": false,
+  "editor.letterSpacing": 0.25,
+  "editor.lineHeight": 25,
+  "editor.minimap.enabled": false,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "editor.suggestSelection": "first",
+  "editor.scrollBeyondLastLine": false,
+  "editor.tabCompletion": "on",
+  "editor.tabSize": 2,
+  "editor.wordWrap": "on",
+
+  "tailwindCSS.includeLanguages": {
+    "plaintext": "html"
+  },
+
+  "better-comments.multilineComments": true,
+  "better-comments.highlightPlainText": true,
+
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+
+  // Terminal
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.fontFamily": "Fira Code Light",
+  "terminal.integrated.letterSpacing": 0.25,
+  "terminal.integrated.lineHeight": 1.25,
+  "workbench.colorCustomizations": {
+    // "panel.border": "#06b9a5",
+    // "sideBar.border": "#06b9a5",
+    "panel.border": "#7d8bb3",
+    "sideBar.border": "#7d8bb3",
+    "activityBar.border": "#7d8bb3",
+    "titleBar.activeForeground": "#fff",
+    "titleBar.inactiveForeground": "#ffffffCC",
+    "titleBar.activeBackground": "#374151",
+    "titleBar.inactiveBackground": "#374151CC",
+    "editorGutter.modifiedBackground": "#FD00FF",
+    "editorGutter.addedBackground": "#FD00FF",
+    "editorGroup.border": "#7d8bb3"
+  },
+  "whenFile.change": {
+    "/webapp/": {
+      "workbenchColor": {
+        "titleBar.activeForeground": "#000",
+        "titleBar.inactiveForeground": "#000000CC",
+        "titleBar.activeBackground": "#FFC600",
+        "titleBar.inactiveBackground": "#FFC600CC"
+      }
+    },
+    "/api/": {
+      "workbenchColor": {
+        "titleBar.activeForeground": "#EFEFEF",
+        "titleBar.inactiveForeground": "#EFEFEFCC",
+        "titleBar.activeBackground": "#BE185D",
+        "titleBar.inactiveBackground": "#BE185DCC"
+      }
+    },
+    "/outbound-communication/": {
+      "workbenchColor": {
+        "titleBar.activeForeground": "#EFEFEF",
+        "titleBar.inactiveForeground": "#EFEFEFCC",
+        "titleBar.activeBackground": "#0369A1",
+        "titleBar.inactiveBackground": "#0369A1CC"
+      }
+    }
+  },
+
+  "bookmarks.gutterIconFillColor": "#FFC600",
+  "bookmarks.gutterIconBorderColor": "#FFC600",
+  "workbench.editor.labelFormat": "short",
+  "launch": {
+    "configurations": [],
+    "compounds": []
+  },
+  "prettier.requireConfig": true,
+  "sync.gist": "d7d30ac13a74d67ed60885c0a58ec2fa",
+  "workbench.startupEditor": "none",
+  "xstate.nestTypegenFiles": false,
+  "explorer.fileNesting.patterns": {
+    "*.ts": "${capture}.js",
+    "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
+    "*.jsx": "${capture}.js",
+    "*.tsx": "${capture}.ts",
+    "tsconfig.json": "tsconfig.*.json",
+    "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml"
+  },
+  "redhat.telemetry.enabled": false,
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.colorTheme": "ReUI II Dark (Italic)",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "errorLens.excludeBySource": ["ts(2322)"]
 }
