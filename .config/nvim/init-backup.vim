@@ -10,7 +10,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim' 
 Plug 'ayu-theme/ayu-vim'
-Plug 'morhetz/gruvbox'
+Plug 'felipeagc/fleet-theme-nvim'
 call plug#end()
 
 set termguicolors
@@ -32,3 +32,4 @@ nnoremap <leader>Y gg"+yG
 
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
+
