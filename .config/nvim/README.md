@@ -5,7 +5,7 @@ Forked from ThePrimeagen's [init.lua](https://github.com/ThePrimeagen/init.lua)
 See [The full video of ThePrimagen setting up this repo](https://www.youtube.com/watch?v=w7i4amO_zaE)
 
 #### Langage server protocol
-Install LSP using `:Mason`
+Install using `:Mason`
 
 #### Plugins
 Configure plugin and run `:PackerSync`
