@@ -1,2 +1,1 @@
-print('Hello, lua!')
-
+require('user/options')
