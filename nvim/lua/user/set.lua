@@ -59,3 +59,7 @@ vim.opt.backup = true
 
 -- keep backups out of the current directory
 vim.opt.backupdir:remove('.')
+
+-- highlight
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
