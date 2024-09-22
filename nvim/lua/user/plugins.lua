@@ -29,6 +29,42 @@ use('wbthomason/packer.nvim')
 -- Commenting support
 use('tpope/vim-commentary')
 
+-- Add, change, and delete surrounding text
+use('tpope/vim-surround')
+
+-- Useful commands like :Rename and :SudoWrite
+use('tpope/vim-eunuch')
+
+-- Pairs of handy bracket mappings, like [b and ]b
+use('tpope/vim-unimpaired')
+
+-- Indent autodetection with editorconfig support
+use('tpope/vim-sleuth')
+
+-- Allow plugins to enable repeating of commands
+use('tpope/vim-repeat')
+
+-- Add more languages
+use('sheerun/vim-polyglot')
+
+-- Navigate seamlessly between Vim windows and Tmux panes
+use('christoomey/vim-tmux-navigator')
+
+-- Jump to last location when opening file
+use('farmergreg/vim-lastplace')
+
+-- Enable * searching with visually selected text
+use('nelstrom/vim-visual-star-search')
+
+-- Automatically create parents dirs when saving
+use('jessarcher/vim-heritage')
+
+-- Text objects for HTML attributes
+use({
+  'whatyouhide/vim-textobj-xmlattr',
+  requires = 'kana/vim-textobj-user',
+})
+
 -- Automatically set up your configuration after cloning packer.nvim
 -- Put this at the end after all plugins
 if packer_bootstrap then
