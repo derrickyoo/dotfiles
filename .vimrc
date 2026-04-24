@@ -105,6 +105,18 @@ nnoremap <C-j> :wincmd j<CR>
 nnoremap <C-h> :wincmd h<CR>
 nnoremap <C-l> :wincmd l<CR>
 
+" tabs
+nnoremap <leader>to :tabnew<CR>
+nnoremap <leader>tx :tabclose<CR>
+nnoremap <leader>tn :tabn<CR>
+nnoremap <leader>tp :tabp<CR>
+
+nnoremap <leader>x :bdelete<CR>
+nnoremap <leader>b :enew<CR>
+
+" toggle line wrapping
+nnoremap <leader>lw :set wrap!<CR>
+
 " Press jk fast to exit insert mode
 inoremap jk <ESC>
 inoremap kj <ESC>
@@ -129,9 +141,6 @@ nnoremap <leader><CR> :so ~/.vimrc<CR>
 
 " Syntax highlighting
 syntax on
-
-" Colorscheme
-colorscheme lunaperche
 
 " Sync clipboard with OS
 if system('uname -s') == "Darwin\n"
