@@ -1,0 +1,71 @@
+format = """
+$directory\
+$git_branch\
+$git_status\
+$fill\
+$python\
+$lua\
+$nodejs\
+$golang\
+$rust\
+$aws\
+$docker_context\
+$jobs\
+$cmd_duration\
+$line_break\
+$character"""
+
+[fill]
+symbol = " "
+
+[aws]
+symbol = ' '
+style = 'yellow'
+format = '[$symbol($profile )(\[$duration\] )]($style)'
+
+[gcloud]
+disabled = true
+
+[cmd_duration]
+min_time = 500
+style = 'fg:gray'
+format = '[$duration]($style)'
+
+[docker_context]
+symbol = ' '
+style = 'fg:#06969A'
+format = '[$symbol]($style) $path'
+detect_files = ['docker-compose.yml', 'docker-compose.yaml', 'Dockerfile']
+detect_extensions = ['Dockerfile']
+
+[git_branch]
+symbol = ' '
+format = '[on](white) [$symbol$branch ]($style)'
+
+[golang]
+format = '[$symbol($version )]($style)'
+style = 'blue'
+symbol = ' '
+
+[lua]
+format = '[$symbol($version )]($style)'
+symbol = ' '
+
+[nodejs]
+format = '[$symbol($version )]($style)'
+symbol = "✨ "
+style = "bold green"
+
+[battery]
+full_symbol = "🔋 "
+charging_symbol = "⚡️ "
+
+[[battery.display]]
+threshold = 5
+style = "bold red"
+discharging_symbol = "💀 "
+
+[[battery.display]]
+threshold = 10
+style = "bold yellow"
+discharging_symbol = "💦 "
