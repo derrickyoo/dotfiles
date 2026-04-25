@@ -13,7 +13,6 @@ end
 ---@type vim.Option
 local rtp = vim.opt.rtp
 rtp:prepend(lazypath)
-
 -- [[ Configure and install plugins ]]
 --
 --  To check the current status of your plugins, run
@@ -31,6 +30,7 @@ require('lazy').setup({
   require 'plugins.lualine',
   require 'plugins.treesitter',
   require 'plugins.telescope',
+  require 'plugins.lsp',
 }, { ---@diagnostic disable-line: missing-fields
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
