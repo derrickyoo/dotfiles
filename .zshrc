@@ -97,23 +97,34 @@ source $ZSH/oh-my-zsh.sh
 # the $ZSH_CUSTOM folder, with .zsh extension. Examples:
 # - $ZSH_CUSTOM/aliases.zsh
 # - $ZSH_CUSTOM/macos.zsh
+
+# ============================== Aliases ==============================
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Shell & files
 alias s="source ~/.zshrc"
 alias tsh="trash"
+alias rm="trash"
 alias mkdir="take"
 alias ls="lsd"
 alias ll="lsd -l"
 alias tree="lsd --tree"
+alias vim="nvim"
+alias python="python3"
+alias find_node_modules="find . -name 'node_modules' -type d -prune"
+alias remove_node_modules="find . -name node_modules -type d -prune -exec trash {} +"
+
+# Navigation
 alias home="cd ~"
-alias pro="cd ~/Projects"
 alias desk="cd ~/Desktop"
-alias start="cd ~/Startups"
-alias dexus="cd ~/Startups/Dexus"
 alias docs="cd ~/Documents"
+alias cfg="cd ~/.config"
+alias pro="cd ~/Projects"
+alias start="cd ~/Startups"
 alias dexus="cd ~/Startups/Dexus"
 alias boots="cd ~/Projects/boot-dev"
 alias epic="cd ~/Projects/epic"
@@ -121,11 +132,10 @@ alias egg="cd ~/Projects/egghead"
 alias fem="cd ~/Projects/fem"
 alias ai="cd ~/Projects/ai-hero"
 alias db="cd ~/Projects/db-school"
-alias gsw="git switch"
-alias gswc="git switch -c"
+
+# Git  (gsw / gswc / gst are already provided by the git plugin)
 alias grlo="git reflog"
 alias glo="git --no-pager log --decorate=full --oneline"
-alias gst="git status"
 alias gch="git checkout"
 alias gre="git rebase"
 alias grei="git rebase -i"
@@ -133,52 +143,51 @@ alias gsta="git stash"
 alias gstap="git stash pop"
 alias gstal="git stash list"
 
-alias cc="claude"
-alias ccu="npx ccusage@latest"
-alias cx="codex"
-
+# Docker  (dps is already provided by the docker plugin)
 alias dimg="docker images"
-alias dps="docker ps"
 alias dc="docker compose"
 alias dcu="docker compose up"
 alias dcd="docker compose down -v"
 alias dsysp="docker system prune"
 alias dki="docker kill"
-alias cfg="cd ~/.config"
-alias vim="nvim"
-alias find_node_modules="find . -name 'node_modules' -type d -prune"
-alias remove_node_modules="find . -name node_modules -type d -prune -exec trash {} +"
 
-alias python="python3"
+# AI tools
+alias cc="claude"
+alias ccu="npx ccusage@latest"
+alias cx="codex"
 
+# Claude Code
+dopus(){
+  claude --dangerously-skip-permissions "$@" --model "opus"
+}
+
+popus(){
+  dopus "$(pbpaste) --- $@"
+}
+
+# ========================= Environment & PATH ========================
+export LANG=en_US.UTF-8
+
+# nvm
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
-eval "$(starship init zsh)"
-# echo '\e[6 q'
-
-# bun completions
-[ -s "/Users/dky/.bun/_bun" ] && source "/Users/dky/.bun/_bun"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                    # load nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # load completion
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+[ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
 
-# Generated for envman. Do not edit.
+# starship prompt
+export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
+eval "$(starship init zsh)"
+
+# envman (auto-generated; do not edit)
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
-export PATH=$PATH:$HOME/.local/opt/go/bin
-export LANG=en_US.UTF-8
-
+# go, postgres, sqlite
+export PATH="$PATH:$HOME/.local/opt/go/bin"
 export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/dky/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/dky/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/dky/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/dky/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
 unsetopt autocd
