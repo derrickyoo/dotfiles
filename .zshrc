@@ -157,6 +157,14 @@ alias ccu="npx ccusage@latest"
 alias cx="codex"
 
 # Claude Code
+opus() {
+	claude  "$@" --model "opus"
+}
+
+mopus() {
+	claude  "$@" --model "opus" --effort "max"
+}
+
 dopus(){
   claude --dangerously-skip-permissions "$@" --model "opus"
 }
