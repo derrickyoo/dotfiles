@@ -108,7 +108,7 @@ source $ZSH/oh-my-zsh.sh
 # Shell & files
 alias s="source ~/.zshrc"
 alias tsh="trash"
-alias rm="trash"
+# alias rm="trash"
 alias mkdir="take"
 alias ls="lsd"
 alias ll="lsd -l"
@@ -154,7 +154,16 @@ alias dki="docker kill"
 # AI tools
 alias cc="claude"
 alias ccu="npx ccusage@latest"
-alias cx="codex"
+alias x="codex"
+
+# Codex
+xr() {
+  codex "$@"
+}
+
+xrl() {
+  codex resume --last "@"
+}
 
 # Claude Code
 opus() {
