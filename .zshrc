@@ -106,7 +106,6 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Shell & files
-alias s="source ~/.zshrc"
 alias tsh="trash"
 # alias rm="trash"
 alias mkdir="take"
@@ -143,6 +142,49 @@ alias gsta="git stash"
 alias gstap="git stash pop"
 alias gstal="git stash list"
 
+unalias fix 2>/dev/null
+unalias feat 2>/dev/null
+unalias chore 2>/dev/null
+unalias push 2>/dev/null
+cfix() {
+  local scope="$1"
+  local message="$2"
+  git add . && git commit -m "fix($scope): $message"
+}
+
+# Git fix function for conventional commits
+fix() {
+  local scope="$1"
+  local message="$2"
+  git add . && git commit -m "fix($scope): $message" && git push
+}
+
+# Git chore function for conventional commits
+chore() {
+  local scope="$1"
+  local message="$2"
+  git add . && git commit -m "chore($scope): $message" && git push
+}
+
+# Git feat function for conventional commits
+feat() {
+  local scope="$1"
+  local message="$2"
+  git add . && git commit -m "feat($scope): $message" && git push
+}
+
+# Push function for "fix: tweak" message. No scope. Hardcoded message.
+push() {
+  git add . && git commit -m "fix: tweak" && git push
+}
+
+# Git chore function for conventional commits
+chore() {
+  local scope="$1"
+  local message="$2"
+  git add . && git commit -m "chore($scope): $message" && git push
+}
+
 # Docker  (dps is already provided by the docker plugin)
 alias dimg="docker images"
 alias dc="docker compose"
@@ -151,21 +193,41 @@ alias dcd="docker compose down -v"
 alias dsysp="docker system prune"
 alias dki="docker kill"
 
-# AI tools
-alias cc="claude"
-alias ccu="npx ccusage@latest"
-alias x="codex"
+## Zed Editor
+alias z="zed"
+alias zz="zed ~/.zshrc"
+alias s="source ~/.zshrc"
 
+# AI tools
+alias ccu="npx ccusage@latest"
+
+# ============================== AI Tools ==============================
 # Codex
-xr() {
-  codex "$@"
+cx() {
+	codex "$@"
 }
 
-xrl() {
-  codex resume --last "@"
+cxr() {
+  x resume "$@"
+}
+
+cxrl() {
+  x resume --last "$@"
 }
 
 # Claude Code
+cc() {
+	claude "$@"
+}
+
+ccr() {
+  c --resume "$@"
+}
+
+ccrl() {
+  c --continue "$@"    # last session in cwd
+}
+
 opus() {
 	claude  "$@" --model "opus"
 }
@@ -207,4 +269,4 @@ export PATH="$PATH:$HOME/.local/opt/go/bin"
 export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"
 
-unsetopt autocd
+# unsetopt autocd
