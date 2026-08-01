@@ -128,7 +128,7 @@ alias dexus="cd ~/Startups/Dexus"
 alias boots="cd ~/Projects/boot-dev"
 alias epic="cd ~/Projects/epic"
 alias egg="cd ~/Projects/egghead"
-alias fem="cd ~/Projects/fem"
+alias mas="cd ~/Projects/master"
 alias ai="cd ~/Projects/ai-hero"
 alias db="cd ~/Projects/db-school"
 
@@ -142,35 +142,82 @@ alias gsta="git stash"
 alias gstap="git stash pop"
 alias gstal="git stash list"
 
-unalias fix 2>/dev/null
 unalias feat 2>/dev/null
+unalias fix 2>/dev/null
+unalias perf 2>/dev/null
+unalias refactor 2>/dev/null
+unalias docs 2>/dev/null
+unalias test 2>/dev/null
+unalias build 2>/dev/null
+unalias ci 2>/dev/null
 unalias chore 2>/dev/null
 unalias push 2>/dev/null
-cfix() {
+
+unalias style 2>/dev/null
+unalias revert 2>/dev/null
+unalias breaking 2>/dev/null
+
+# Git feat function for conventional commits. New feature. MINOR bump.
+feat() {
   local scope="$1"
   local message="$2"
-  git add . && git commit -m "fix($scope): $message"
+  git add . && git commit -m "feat($scope): $message" && git push
 }
 
-# Git fix function for conventional commits
+# Git fix function for conventional commits. Bug fix. PATCH bump.
 fix() {
   local scope="$1"
   local message="$2"
   git add . && git commit -m "fix($scope): $message" && git push
 }
 
-# Git chore function for conventional commits
+# Git perf function for conventional commits. Faster/lighter, same behavior. PATCH bump.
+perf() {
+  local scope="$1"
+  local message="$2"
+  git add . && git commit -m "perf($scope): $message" && git push
+}
+
+# Git refactor function for conventional commits. Restructure, no behavior change.
+refactor() {
+  local scope="$1"
+  local message="$2"
+  git add . && git commit -m "refactor($scope): $message" && git push
+}
+
+# Git docs function for conventional commits. README, JSDoc, comments.
+docs() {
+  local scope="$1"
+  local message="$2"
+  git add . && git commit -m "docs($scope): $message" && git push
+}
+
+# Git test function for conventional commits. Tests only.
+test() {
+  local scope="$1"
+  local message="$2"
+  git add . && git commit -m "test($scope): $message" && git push
+}
+
+# Git build function for conventional commits. Deps, bundler, tsconfig, turbo.json.
+build() {
+  local scope="$1"
+  local message="$2"
+  git add . && git commit -m "build($scope): $message" && git push
+}
+
+# Git ci function for conventional commits. GitHub Actions, pipelines.
+ci() {
+  local scope="$1"
+  local message="$2"
+  git add . && git commit -m "ci($scope): $message" && git push
+}
+
+# Git chore function for conventional commits. Everything else.
 chore() {
   local scope="$1"
   local message="$2"
   git add . && git commit -m "chore($scope): $message" && git push
-}
-
-# Git feat function for conventional commits
-feat() {
-  local scope="$1"
-  local message="$2"
-  git add . && git commit -m "feat($scope): $message" && git push
 }
 
 # Push function for "fix: tweak" message. No scope. Hardcoded message.
@@ -178,11 +225,28 @@ push() {
   git add . && git commit -m "fix: tweak" && git push
 }
 
-# Git chore function for conventional commits
-chore() {
+# Git style function for conventional commits. Formatting/whitespace only.
+style() {
   local scope="$1"
   local message="$2"
-  git add . && git commit -m "chore($scope): $message" && git push
+  git add . && git commit -m "style($scope): $message" && git push
+}
+
+# Git revert function for conventional commits. Undoing a prior commit.
+revert() {
+  local scope="$1"
+  local message="$2"
+  git add . && git commit -m "revert($scope): $message" && git push
+}
+
+# Breaking change. MAJOR bump.
+# usage: breaking feat api "drop v1" "use /v2 instead"
+breaking() {
+  local type="$1"
+  local scope="$2"
+  local message="$3"
+  local note="$4"
+  git add . && git commit -m "$type($scope)!: $message" -m "BREAKING CHANGE: $note" && git push
 }
 
 # Docker  (dps is already provided by the docker plugin)
@@ -221,23 +285,27 @@ cc() {
 }
 
 ccr() {
-  c --resume "$@"
+  cc --resume "$@"
 }
 
 ccrl() {
-  c --continue "$@"    # last session in cwd
+  cc --continue "$@"    # last session in cwd
 }
 
 opus() {
-	claude  "$@" --model "opus"
+	cc  "$@" --model "opus"
 }
 
 mopus() {
-	claude  "$@" --model "opus" --effort "max"
+	cc  "$@" --model "opus" --effort "max"
+}
+
+mable(){
+	cc  "$@" --model "fable" --effort "max"
 }
 
 dopus(){
-  claude --dangerously-skip-permissions "$@" --model "opus"
+  cc --dangerously-skip-permissions "$@" --model "opus"
 }
 
 popus(){
