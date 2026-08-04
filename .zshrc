@@ -147,12 +147,11 @@ unalias fix 2>/dev/null
 unalias perf 2>/dev/null
 unalias refactor 2>/dev/null
 unalias docs 2>/dev/null
-unalias test 2>/dev/null
+unalias tests 2>/dev/null
 unalias build 2>/dev/null
 unalias ci 2>/dev/null
 unalias chore 2>/dev/null
 unalias push 2>/dev/null
-
 unalias style 2>/dev/null
 unalias revert 2>/dev/null
 unalias breaking 2>/dev/null
@@ -193,7 +192,7 @@ docs() {
 }
 
 # Git test function for conventional commits. Tests only.
-test() {
+tests() {
   local scope="$1"
   local message="$2"
   git add . && git commit -m "test($scope): $message" && git push
@@ -266,17 +265,34 @@ alias s="source ~/.zshrc"
 alias ccu="npx ccusage@latest"
 
 # ============================== AI Tools ==============================
-# Codex
+# Codex: GPT-5.6 Terra, high reasoning
 cx() {
-	codex "$@"
+  codex \
+  -m gpt-5.6-terra \
+  -c 'model_reasoning_effort="high"' \
+  -a on-request \
+  "$@"
 }
 
 cxr() {
-  x resume "$@"
+  cx resume "$@"
 }
 
 cxrl() {
-  x resume --last "$@"
+  cx resume --last "$@"
+}
+
+msol() {
+  codex \
+    -m gpt-5.6-sol \
+    -c 'model_reasoning_effort="max"' \
+    -s workspace-write \
+    -a on-request \
+    "$@"
+}
+
+psol() {
+  msol "$(pbpaste) --- $@"
 }
 
 # Claude Code
@@ -297,7 +313,7 @@ opus() {
 }
 
 mopus() {
-	cc  "$@" --model "opus" --effort "max"
+	cc  "$@" --model "opus" --effort "max" --permission-mode auto
 }
 
 mable(){
