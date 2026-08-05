@@ -256,6 +256,44 @@ alias dcd="docker compose down -v"
 alias dsysp="docker system prune"
 alias dki="docker kill"
 
+# Herdr
+h() {
+	herdr
+}
+
+hs() {
+	herdr --session "$@"
+}
+
+hsa() {
+	herdr session attach "$@"
+}
+
+hsl() {
+  herdr session list
+}
+
+hss() {
+	herdr session stop "$@"
+}
+
+hst() {
+	herdr server stop
+}
+
+hal() {
+	herdr agent list
+}
+
+har() {
+	herdr agent read "$1" --source recent-unwrapped --lines "$2" >> context/handoff.md
+}
+
+hap() {
+	herdr agent prompt "$1" \
+  	"Read context/handoff.md. Continue from it and upon user request, append to the context/handoff.md followed by YYYY-MM-DD-<model>-<effort>"
+}
+
 ## Zed Editor
 alias z="zed"
 alias zz="zed ~/.zshrc"
@@ -287,7 +325,7 @@ msol() {
     -m gpt-5.6-sol \
     -c 'model_reasoning_effort="max"' \
     -s workspace-write \
-    -a on-request \
+    -a never \
     "$@"
 }
 
